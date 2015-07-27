@@ -15,10 +15,21 @@
     {{content-for 'head-footer'}}
   </head>
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="collapse navbar-collapse">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">AudioKit</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="#">Network</a></li>
+          <li><a href="#">Devices</a></li>
+        </ul>
+      </div>
+    </nav>
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>
-    <script src="assets/client.js"></script>
+    <script src="assets/audiokit-client.js"></script>
 
     {{content-for 'body-footer'}}
   </body>
