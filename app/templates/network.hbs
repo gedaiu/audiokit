@@ -1,0 +1,19 @@
+<h1>Network</h1>
+
+
+<div class="list-group network">
+  {{#each model as |item|}}
+
+    <a href="#" class="list-group-item {{if item.isConnected 'active'}} {{if item.isFavorite 'favorite'}} {{if item.isProtected 'protected'}}">
+      <div class="btn btn-default favorite-icon">
+        <i class="fa fa-thumbs-up"></i>
+        <i class="fa fa-thumbs-o-down"></i>
+      </div>
+
+      <h4 class="list-group-item-heading">{{item.name}} <i class="fa fa-lock"></i></h4>
+    </a>
+
+  {{else}}
+    <li>Sorry, nobody is here.</li>
+  {{/each}}
+</div>

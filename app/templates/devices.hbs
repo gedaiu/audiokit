@@ -1,0 +1,18 @@
+<h1>Devices</h1>
+
+
+<div class="list-group">
+  {{#each model as |item|}}
+  <a href="#" class="list-group-item {{if item.isConnected 'active'}} {{if item.isFavorite 'favorite'}}">
+    <div class="btn btn-default favorite-icon">
+      <i class="fa fa-thumbs-up"></i>
+      <i class="fa fa-thumbs-o-down"></i>
+    </div>
+
+    <h4 class="list-group-item-heading">{{item.name}}</h4>
+    <p class="list-group-item-text">{{item.id}}</p>
+  </a>
+  {{else}}
+    <li>Sorry, nobody is here.</li>
+  {{/each}}
+</div>
