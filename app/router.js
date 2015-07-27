@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('network');
+  this.resource('devices');
+  this.resource('settings');
 });
 
 export default Router;

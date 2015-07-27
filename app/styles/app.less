@@ -1,5 +1,56 @@
+body {
+  margin-top: 50px;
+}
+
 .navbar-brand {
   img {
     width: 30px;
+  }
+}
+
+.favorite-icon {
+  float: right;
+
+  .fa-thumbs-up {
+    display: none;
+  }
+
+  .fa {
+    transition: transform ease-in-out 0.2s;
+  }
+}
+
+.favorite-icon:hover {
+  .fa {
+    transform: rotate(180deg);
+  }
+}
+
+.network {
+  .favorite-icon {
+    position: relative;
+    top: -5px;
+  }
+
+  .fa-lock {
+    display: none;
+  }
+
+  .protected {
+    .fa-lock {
+      display: inline-block;
+    }
+  }
+}
+
+.favorite {
+  .favorite-icon {
+    .fa-thumbs-up {
+      display: inline-block;
+    }
+
+    .fa-thumbs-o-down {
+      display: none;
+    }
   }
 }
