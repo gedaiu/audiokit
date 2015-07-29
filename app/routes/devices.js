@@ -1,18 +1,30 @@
 import Ember from 'ember';
+import PollingRouteModel from "../mixins/polling-route-model";
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(PollingRouteModel, {
+  poll: function() {
+      var _this = this;
+
+      Ember.run.later( function() {
+        console.log('later!');
+        _this.reload();
+        _this.poll();
+      }, 500);
+   }.observes('didLoad'),
+
+  _getURL: function() {
+    return 'http://' + localStorage.ipAddress + ':' + localStorage.port + '/devices';
+  },
+
   model: function() {
-    return [{
-        name: "Bogdan's phone",
-        id: '12:A2:25:B4:FA:23',
-        isFavorite: false,
-        isConnected: false
-      }, {
-        name: "Bogdan's IPod",
-        id: '12:A2:25:B4:FA:23',
-        isFavorite: true,
-        isConnected: true
-      }
-    ];
+    var _this = this;
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      return $.getJSON(_this._getURL(), function(data) {
+        resolve(data);
+      }).fail(function() {
+        reject( "error" );
+      });
+    });
   }
 });

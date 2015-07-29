@@ -6,10 +6,6 @@ module.exports = function(defaults) {
     // Add options here
   });
 
-  app.import(app.bowerDirectory + '/jquery/dist/jquery.min.js', {
-      destDir: 'assets'
-  });
-
   app.import(app.bowerDirectory + '/font-awesome/css/font-awesome.min.css');
 
   app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
